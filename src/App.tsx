@@ -3,6 +3,7 @@ import { MapboxMap } from "./MapboxMap";
 import {
   BASE_PATH,
   Configuration,
+  PolylineMapType,
   Results,
   RouteResponse,
   RoutingApi,
@@ -132,6 +133,9 @@ export default function App(props: {
         waypoints: waypoints.map((w) => `${w.latitude},${w.longitude}`),
         results: [Results.POLYLINE],
         profile: vehicleProfile,
+        options: {
+          polylineMapType: PolylineMapType.VECTOR
+        }
       });
       setRouteResponse(response);
     }
